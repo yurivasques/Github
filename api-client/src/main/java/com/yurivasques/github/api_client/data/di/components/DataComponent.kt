@@ -5,6 +5,7 @@ import com.yurivasques.github.api_client.data.di.modules.NetModule
 import com.yurivasques.github.api_client.data.di.modules.PersistenceModule
 import com.yurivasques.github.api_client.data.di.modules.RepositoryModule
 import com.yurivasques.github.api_client.domain.repository.RepoRepository
+import com.yurivasques.github.api_client.domain.repository.TagRepository
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -20,5 +21,7 @@ interface DataComponent {
 
     // Exposed to sub-graphs
     fun provideRepoRepository(): RepoRepository
+
+    fun provideTagRepository(): TagRepository
 
 }
