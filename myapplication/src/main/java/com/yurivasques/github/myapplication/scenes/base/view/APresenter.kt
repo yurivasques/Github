@@ -1,5 +1,7 @@
 package com.yurivasques.github.myapplication.scenes.base.view
 
+import android.annotation.SuppressLint
+import android.util.Log
 import androidx.annotation.VisibleForTesting
 import com.yurivasques.github.myapplication.exception.ErrorMessageFactory
 import io.reactivex.rxjava3.core.Observable
@@ -20,7 +22,10 @@ abstract class APresenter<in View : LoadDataView<ViewModel>, ViewModel>(private 
         }
     }
 
-    protected fun getErrorMessage(error: Throwable): String = errorMessageFactory.getError(error)
+    protected fun getErrorMessage(error: Throwable): String {
+        Log.e("getErrorMessage", "Deu erro", error)
+        return errorMessageFactory.getError(error)
+    }
 
     fun detach() {
         composite.clear()

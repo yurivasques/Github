@@ -45,10 +45,7 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoLis
 
     private val userName: String by lazy { getStringArg(ARGS_USER_NAME) }
 
-    private fun getParam(): String {
-        Log.d("getParam:userName", userName)
-        return userName
-    }
+    private fun getParam(): String = userName
 
     private val repoAdapter =
         ReposAdapter()

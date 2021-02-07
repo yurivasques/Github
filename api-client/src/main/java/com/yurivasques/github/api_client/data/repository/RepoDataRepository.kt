@@ -23,10 +23,7 @@ class RepoDataRepository (
 
     override fun getListRepo(userName: String): Single<List<Repo>> =
         gitHubApi.getListRepos(userName)
-            .map {
-                //Log.d("getListRepo:userName", userName)
-                repoMapper.transform(it, userName)
-            }
+            .map { repoMapper.transform(it, userName) }
 
     override fun getCacheListRepo(userName: String): Single<List<Repo>> =
         repoProcessor.getAll(userName)
