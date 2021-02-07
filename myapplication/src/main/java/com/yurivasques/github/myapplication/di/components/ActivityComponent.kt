@@ -4,8 +4,10 @@ import android.app.Activity
 import com.yurivasques.github.myapplication.di.PerActivity
 import com.yurivasques.github.myapplication.di.modules.ActivityModule
 import com.yurivasques.github.myapplication.scenes.repolist.RepoListFragment
+import com.yurivasques.github.myapplication.scenes.search.SearchFragment
 import dagger.BindsInstance
 import dagger.Subcomponent
+import javax.inject.Inject
 
 @PerActivity
 @Subcomponent(modules = [(ActivityModule::class)])
@@ -17,6 +19,8 @@ interface ActivityComponent {
     }
 
     //region Inject
+    fun inject(fragment: SearchFragment)
+
     fun inject(fragment: RepoListFragment)
     //endregion
 

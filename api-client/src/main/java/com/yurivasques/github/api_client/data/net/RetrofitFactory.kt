@@ -13,10 +13,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitFactory {
     private const val MAIN_URL = "https://api.github.com/"
 
-    /**
-     * Get [Retrofit] instance.
-     * @return instances of [Retrofit]
-     */
     @RequiresPermission(value = Manifest.permission.INTERNET)
     fun getRetrofit(
         context: Context,

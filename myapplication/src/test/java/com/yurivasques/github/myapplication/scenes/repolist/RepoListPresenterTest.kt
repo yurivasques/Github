@@ -39,7 +39,7 @@ class RepoListPresenterTest {
     }
 
     // Properties
-    private val userName = "lopspower"
+    private val userName = "yurivasques"
 
     @Before
     fun setup() {
@@ -47,7 +47,6 @@ class RepoListPresenterTest {
             on { intentLoadData() } doReturn Observable.never()
             on { intentRefreshData() } doReturn Observable.never()
             on { intentErrorRetry() } doReturn Observable.never()
-            on { intentFavorite() } doReturn Observable.never()
             //on { openRepo() } doReturn Observable.never()
         }
     }

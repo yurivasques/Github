@@ -7,4 +7,6 @@
     <string name="error_persistence">Erro nos dados da persistência</string>
     <string name="error_generic">Ocorreu um erro</string>
     <string name="error_no_connection_image_description">Imagem de sem conexão</string>
+    <string name="username_text">Nome de usuário</string>
+    <string name="search_button">Buscar</string>
 </resources>

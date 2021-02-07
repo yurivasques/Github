@@ -1,5 +1,6 @@
 package com.yurivasques.github.api_client.data.repository
 
+import android.util.Log
 import com.yurivasques.github.api_client.data.di.providers.NetworkChecker
 import com.yurivasques.github.api_client.data.mapper.RepoMapper
 import com.yurivasques.github.api_client.data.net.GitHubApi
@@ -22,7 +23,10 @@ class RepoDataRepository (
 
     override fun getListRepo(userName: String): Single<List<Repo>> =
         gitHubApi.getListRepos(userName)
-            .map { repoMapper.transform(it, userName) }
+            .map {
+                //Log.d("getListRepo:userName", userName)
+                repoMapper.transform(it, userName)
+            }
 
     override fun getCacheListRepo(userName: String): Single<List<Repo>> =
         repoProcessor.getAll(userName)

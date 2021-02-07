@@ -1,6 +1,7 @@
 package com.yurivasques.github.myapplication.scenes.repolist
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -12,16 +13,16 @@ import com.yurivasques.github.api_client.data.helper.TimberWrapper
 import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.myapplication.R
 import com.yurivasques.github.myapplication.di.PerActivity
+import com.yurivasques.github.myapplication.extensions.build
+import com.yurivasques.github.myapplication.extensions.getStringArg
 import com.yurivasques.github.myapplication.scenes.base.view.ABaseDataFragment
 import com.yurivasques.github.myapplication.scenes.base.view.ContentState
 import com.yurivasques.github.myapplication.scenes.base.view.LoadingState
 import io.reactivex.rxjava3.core.Observable
-import timber.log.Timber
-import java.util.logging.Logger
+import io.reactivex.rxjava3.subjects.PublishSubject
 import javax.inject.Inject
 
-class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment),
-    RepoListView {
+class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoListView {
 
     @PerActivity
     lateinit var recyclerView: RecyclerView
@@ -31,14 +32,23 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment),
     lateinit var content: FrameLayout
 
     companion object {
-        fun newInstance(): RepoListFragment =
-            RepoListFragment()
+        private const val ARGS_USER_NAME = "args_user_name"
+
+        fun newInstance(userName: String): RepoListFragment =
+            RepoListFragment().build{
+                putString(ARGS_USER_NAME, userName)
+            }
     }
 
     @Inject
     lateinit var presenter: RepoListPresenter
 
-    private fun getParam() = "lopspower"
+    private val userName: String by lazy { getStringArg(ARGS_USER_NAME) }
+
+    private fun getParam(): String {
+        Log.d("getParam:userName", userName)
+        return userName
+    }
 
     private val repoAdapter =
         ReposAdapter()
@@ -52,7 +62,7 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment),
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view?.findViewById(R.id.recyclerView)!!
         swipeRefreshLayout = view?.findViewById(R.id.swipeRefreshLayout)!!
-        content = view?.findViewById(R.id.content)!!
+        content = view?.findViewById(R.id.repoListContent)!!
         initView()
     }
 
@@ -72,22 +82,13 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment),
     }
 
     //region INTENTS
-    override fun intentLoadData(): Observable<String> =
-        Observable.just(getParam())
+    override fun intentLoadData(): Observable<String> = Observable.just(getParam())
 
-    override fun intentRefreshData(): Observable<String> {
-
-       return swipeRefreshLayout?.refreshes()?.map { getParam() }!!
-    }
+    override fun intentRefreshData(): Observable<String> =
+        swipeRefreshLayout.refreshes().map { getParam() }
 
     override fun intentErrorRetry(): Observable<String> =
         view?.findViewById<TextView>(R.id.btnErrorRetry)?.clicks()?.map { getParam() }!!
-
-    override fun intentFavorite(): Observable<Pair<Int, Repo>> =
-        repoAdapter.repoFavoriteIntent
-
-//    override fun openRepo(): Observable<Pair<Repo, String>> =
-//        repoAdapter.repoClickIntent.map { it to getParam() }
     //endregion
 
     //region RENDER
@@ -105,7 +106,6 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment),
         showError(viewModel.contentState == ContentState.ERROR)
 
         renderData(viewModel.data)
-        renderFavoriteRepo(viewModel.favoriteRepo, viewModel.favoriteRepoPosition)
         renderError(viewModel.errorMessage)
         renderSnack(viewModel.snackMessage)
     }
@@ -114,12 +114,6 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment),
         repoList?.also {
             repoAdapter.data = it.toMutableList()
             recyclerView?.scrollToPosition(0)
-        }
-    }
-
-    private fun renderFavoriteRepo(favoriteRepo: Repo?, favoriteRepoPosition: Int?) {
-        if (favoriteRepo != null && favoriteRepoPosition != null) {
-            repoAdapter.setData(favoriteRepoPosition, favoriteRepo)
         }
     }
     //endregion

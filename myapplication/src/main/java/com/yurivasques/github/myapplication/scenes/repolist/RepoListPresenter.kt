@@ -1,5 +1,6 @@
 package com.yurivasques.github.myapplication.scenes.repolist
 
+import com.yurivasques.github.api_client.data.extensions.shareReplay
 import com.yurivasques.github.api_client.data.extensions.startWithSingle
 import com.yurivasques.github.api_client.domain.functions.DelayFunction
 import com.yurivasques.github.api_client.domain.usecases.GetListRepo
@@ -20,15 +21,11 @@ class RepoListPresenter
 ) : APresenter<RepoListView, RepoListViewModel>(errorMessageFactory) {
 
     override fun attach(view: RepoListView) {
-        val loadRepo = view.intentLoadData().flatMap { loadRepo(it) }
+        val loadRepo = view.intentLoadData().flatMap { loadRepo(it) }.shareReplay()
         val refreshRepo = view.intentRefreshData().flatMap { refreshData(it) }
         val retryRepo = view.intentErrorRetry().flatMap { retryRepo(it) }
 
         subscribeViewModel(view, loadRepo, refreshRepo, retryRepo)
-
-//        view.openRepo()
-//            .subscribe { (repo, userName) -> router.routeToRepo(repo.id, repo.name, userName) }
-//            .addTo(composite)
     }
 
     //region USE CASES TO VIEW MODEL

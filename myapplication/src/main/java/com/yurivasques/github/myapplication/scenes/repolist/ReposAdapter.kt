@@ -13,7 +13,6 @@ import io.reactivex.rxjava3.subjects.PublishSubject
 class ReposAdapter : RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
 
     val repoClickIntent: PublishSubject<Repo> = PublishSubject.create()
-    val repoFavoriteIntent: PublishSubject<Pair<Int, Repo>> = PublishSubject.create()
 
     var data: MutableList<Repo> = mutableListOf()
         set(value) {
@@ -32,7 +31,7 @@ class ReposAdapter : RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
         )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
-        holder.bind(data[position], repoClickIntent, repoFavoriteIntent)
+        holder.bind(data[position], repoClickIntent)
 
     override fun getItemCount() = data.size
 
@@ -40,7 +39,6 @@ class ReposAdapter : RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
         fun bind(
             repo: Repo,
             repoClickIntent: PublishSubject<Repo>,
-            repoFavoriteIntent: PublishSubject<Pair<Int, Repo>>
         ) = with(itemView) {
 
             val textRepoName = itemView.findViewById<TextView>(R.id.textRepoName)

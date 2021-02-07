@@ -1,19 +1,32 @@
 package com.yurivasques.github.myapplication.scenes.base.view
 
+import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
-import org.w3c.dom.Text
+import com.yurivasques.github.myapplication.di.PerApplication
 
 
 abstract class ABaseDataFragment(@LayoutRes contentLayoutId: Int) : ABaseFragment(contentLayoutId) {
 
-    protected val progressLayout = view?.findViewById<View>(com.yurivasques.github.myapplication.R.id.progress_layout)
-    protected val btnErrorRetry = view?.findViewById<TextView>(com.yurivasques.github.myapplication.R.id.btnErrorRetry)
-    protected val errorProgress = view?.findViewById<View>(com.yurivasques.github.myapplication.R.id.errorProgress)
-    protected val textErrorDescription = errorProgress?.findViewById<TextView>(com.yurivasques.github.myapplication.R.id.textErrorDescription)
+    @PerApplication
+    lateinit var progressLayout: View
+    @PerApplication
+    lateinit var btnErrorRetry: TextView
+    @PerApplication
+    lateinit var errorProgress: View
+    @PerApplication
+    lateinit var textErrorDescription: TextView
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        progressLayout = view?.findViewById(com.yurivasques.github.myapplication.R.id.progress_layout)!!
+        btnErrorRetry = view?.findViewById(com.yurivasques.github.myapplication.R.id.btnErrorRetry)!!
+        //errorProgress = view?.findViewById(com.yurivasques.github.myapplication.R.id.errorProgress)!!
+        //textErrorDescription = errorProgress.findViewById(com.yurivasques.github.myapplication.R.id.textErrorDescription)
+        super.onViewCreated(view, savedInstanceState)
+    }
 
     //region RENDER
     protected fun showLoading(visible: Boolean) {
@@ -26,7 +39,7 @@ abstract class ABaseDataFragment(@LayoutRes contentLayoutId: Int) : ABaseFragmen
 
     protected fun showRetryLoading(visible: Boolean) {
         btnErrorRetry?.isClickable = !visible
-        errorProgress?.visibility = if (visible) View.VISIBLE else View.INVISIBLE
+        view?.findViewById<View>(com.yurivasques.github.myapplication.R.id.errorProgress)?.visibility = if (visible) View.VISIBLE else View.INVISIBLE
     }
 
     protected fun showContent(content: View, visible: Boolean) {
@@ -38,14 +51,15 @@ abstract class ABaseDataFragment(@LayoutRes contentLayoutId: Int) : ABaseFragmen
     }
 
     protected fun renderError(messageError: String?) {
-        messageError?.also { textErrorDescription?.text = it }
+        val errorProgress = view?.findViewById<View>(com.yurivasques.github.myapplication.R.id.errorProgress)
+        messageError?.also { errorProgress?.findViewById<TextView>(com.yurivasques.github.myapplication.R.id.textErrorDescription)?.text = it }
     }
 
     protected fun renderSnack(message: String?) {
         message?.also {
             activity?.also { activity ->
                 Snackbar.make(
-                    activity.findViewById(com.yurivasques.github.myapplication.R.id.content),
+                    activity.findViewById(com.yurivasques.github.myapplication.R.id.repoListContent),
                     it, Snackbar.LENGTH_LONG
                 ).show()
             }

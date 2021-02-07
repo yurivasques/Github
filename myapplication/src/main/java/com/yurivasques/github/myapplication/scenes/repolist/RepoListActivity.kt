@@ -3,37 +3,36 @@ package com.yurivasques.github.myapplication.scenes.repolist
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import com.yurivasques.github.myapplication.R
 import com.yurivasques.github.myapplication.scenes.base.view.ABaseActivity
-import com.yurivasques.github.myapplication.exception.addFragment
-import com.yurivasques.github.myapplication.exception.enableToolbar
+import com.yurivasques.github.myapplication.extensions.addFragment
+import com.yurivasques.github.myapplication.extensions.getStringExtra
+import io.reactivex.rxjava3.subjects.PublishSubject
 
 class RepoListActivity : ABaseActivity(R.layout.activity_main) {
 
     companion object {
-        fun newIntent(context: Context): Intent =
-            Intent(context, RepoListActivity::class.java)
+        private const val EXTRA_USER_NAME = "extra_user_name"
+
+        fun newIntent(context: Context, userName: String): Intent =
+            Intent(context, RepoListActivity::class.java).apply {
+                putExtra(EXTRA_USER_NAME, userName)
+            }
     }
 
+    private val userName: String by lazy { getStringExtra(EXTRA_USER_NAME) }
+
+    internal val intentActionLink = PublishSubject.create<Unit>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Make sure this is before calling super.onCreate
         setTheme(R.style.Theme_Github)
         super.onCreate(savedInstanceState)
         initializeActivity(savedInstanceState)
     }
 
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        val view = findViewById<View>(R.id.coordinatorLayout)
-        //enableToolbar(false, null, view)
-    }
-
     private fun initializeActivity(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
-            addFragment(R.id.container,
-                RepoListFragment.newInstance()
-            )
+            addFragment(R.id.container, RepoListFragment.newInstance(userName))
         }
     }
 }
