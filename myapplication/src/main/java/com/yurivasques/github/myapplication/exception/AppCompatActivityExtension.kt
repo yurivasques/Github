@@ -1,0 +1,25 @@
+package com.yurivasques.github.myapplication.exception
+
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
+
+fun AppCompatActivity.addFragment(containerViewId: Int, fragment: Fragment) {
+    supportFragmentManager.beginTransaction().replace(containerViewId, fragment).commit()
+}
+
+fun AppCompatActivity.enableToolbar(enableBack: Boolean = false, title: String? = null, view: View) {
+    val toolbar = view?.findViewById<Toolbar>(com.yurivasques.github.myapplication.R.id.toolbar)
+    setSupportActionBar(toolbar)
+    title?.also { supportActionBar?.title = title }
+    if (enableBack) {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+}
+
+fun AppCompatActivity.getLongExtra(key: String): Long = intent!!.extras!!.getLong(key)
+
+fun AppCompatActivity.getBooleanExtra(key: String): Boolean = intent!!.extras!!.getBoolean(key)
+
+fun AppCompatActivity.getStringExtra(key: String): String = intent!!.extras!!.getString(key)!!

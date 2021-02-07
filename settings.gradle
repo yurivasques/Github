@@ -1,0 +1,4 @@
+include ':myapplication'
+include ':presentation'
+include ':api-client'
+rootProject.name = "Github"

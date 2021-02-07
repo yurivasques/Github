@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GitHub User</string>
+    <string name="action_settings">Configurações</string>
+    <string name="first_fragment_label">Primeira Tela</string>
+    <string name="second_fragment_label">Segunda Tela</string>
+    <string name="next">Próximo</string>
+    <string name="previous">Anterior</string>
+    <string name="hello_second_fragment">Olá Segunda Tela. Arg: %1$s</string>
+    <string name="username_text">Nome de Usuário</string>
+    <string name="search">Buscar</string>
+</resources>

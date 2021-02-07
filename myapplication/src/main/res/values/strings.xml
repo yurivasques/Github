@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GitHub users</string>
+    <string name="error_ops">Ops!</string>
+    <string name="retry">Retry</string>
+    <string name="error_no_connection">No connection</string>
+    <string name="error_persistence">Persistence data error</string>
+    <string name="error_generic">An error has occurred</string>
+    <string name="error_no_connection_image_description">No connection image</string>
+</resources>
