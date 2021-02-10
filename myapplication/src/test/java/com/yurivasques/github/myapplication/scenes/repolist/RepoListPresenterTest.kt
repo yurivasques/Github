@@ -32,7 +32,7 @@ class RepoListPresenterTest {
         RepoListPresenter(
             getListRepo,
             refreshListRepo,
-            //router,
+            router,
             TestScheduler(),
             errorMessageFactoryTest
         )
@@ -47,7 +47,7 @@ class RepoListPresenterTest {
             on { intentLoadData() } doReturn Observable.never()
             on { intentRefreshData() } doReturn Observable.never()
             on { intentErrorRetry() } doReturn Observable.never()
-            //on { openRepo() } doReturn Observable.never()
+            on { openRepo() } doReturn Observable.never()
         }
     }
 

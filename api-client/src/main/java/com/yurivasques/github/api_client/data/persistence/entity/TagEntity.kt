@@ -7,18 +7,16 @@ import com.yurivasques.github.api_client.data.persistence.entity.TagEntity.Compa
 
 @Entity(tableName = TAG_TABLE)
 class TagEntity(
-    @PrimaryKey @ColumnInfo(name = TAG_ID) val id: Long,
+    @PrimaryKey @ColumnInfo(name = TAG_ID) val id: String,
     @ColumnInfo(name = TAG_NAME) val name: String,
-    @ColumnInfo(name = TAG_REPO_NAME) val repoName: String,
-    @ColumnInfo(name = TAG_USER_NAME) val userName: String
+    @ColumnInfo(name = TAG_REPO_ID) val repoId: Long
 ) {
 
     companion object {
-        const val TAG_TABLE = "tag"
+        const val TAG_TABLE = "repoTag"
         const val TAG_ID = "id"
+        const val TAG_REPO_ID = "repo_id"
         const val TAG_NAME = "name"
-        const val TAG_REPO_NAME = "repo_name"
-        const val TAG_USER_NAME = "user_name"
     }
 
 }

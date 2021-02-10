@@ -59,7 +59,7 @@ abstract class ABaseDataFragment(@LayoutRes contentLayoutId: Int) : ABaseFragmen
         message?.also {
             activity?.also { activity ->
                 Snackbar.make(
-                    activity.findViewById(com.yurivasques.github.myapplication.R.id.repoListContent),
+                    activity.findViewById(android.R.id.content),
                     it, Snackbar.LENGTH_LONG
                 ).show()
             }

@@ -86,6 +86,9 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoLis
 
     override fun intentErrorRetry(): Observable<String> =
         view?.findViewById<TextView>(R.id.btnErrorRetry)?.clicks()?.map { getParam() }!!
+
+    override fun openRepo(): Observable<Pair<Repo, String>> =
+        repoAdapter.repoClickIntent.map { it to getParam() }
     //endregion
 
     //region RENDER
@@ -108,6 +111,7 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoLis
     }
 
     private fun renderData(repoList: List<Repo>?) {
+        Log.d("repo:renderData", "$repoList")
         repoList?.also {
             repoAdapter.data = it.toMutableList()
             recyclerView?.scrollToPosition(0)

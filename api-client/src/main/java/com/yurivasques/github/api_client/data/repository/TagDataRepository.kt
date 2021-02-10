@@ -1,5 +1,6 @@
 package com.yurivasques.github.api_client.data.repository
 
+import android.annotation.SuppressLint
 import android.util.Log
 import com.yurivasques.github.api_client.data.di.providers.NetworkChecker
 import com.yurivasques.github.api_client.data.mapper.RepoMapper
@@ -25,25 +26,35 @@ class TagDataRepository (
     override val isConnected: Boolean
         get() = networkChecker.isConnected
 
-    override fun getListTag(userName: String, repoName: String): Single<List<Tag>> =
+    override fun getListTag(userName: String, repoName: String, repoId: Long): Single<List<Tag>> =
         gitHubApi.getListTags(userName, repoName)
-            .map { tagMapper.transform(it, userName, repoName) }
+            .map {
+                tagMapper.transform(it, repoId)
+            }
 
-    override fun getCacheListTag(userName: String, repoName: String): Single<List<Tag>> =
-        tagProcessor.getAll(userName, repoName)
-            .map { tagMapper.transform(it) }
+    @SuppressLint("LongLogTag")
+    override fun getCacheListTag(repoId: Long): Single<List<Tag>> {
+        return tagProcessor.getAll(repoId)
+            .map {
+                tagMapper.transform(it)
+            }
+    }
+
+    override fun getAllCacheListTag(): Single<List<Tag>> =
+        tagProcessor.getAll().map { tagMapper.transform(it) }
 
     override fun saveListTag(tagList: List<Tag>): Completable =
         tagList.toObservable().flatMapCompletable { saveTag(it) }
 
-    override fun saveTag(tag: Tag): Completable =
-            tagProcessor.get(tag.id)
-                    .defaultIfEmpty(tagMapper.transformToEntity(tag))
-                    .flatMapCompletable {
-                        tagProcessor.insert(
-                                tagMapper.transformToEntity(
-                                        tag.copy()
-                                )
-                        )
-                    }
+    override fun saveTag(tag: Tag): Completable {
+        return tagProcessor.get(tag.id)
+            .defaultIfEmpty(tagMapper.transformToEntity(tag))
+            .flatMapCompletable {
+                tagProcessor.insert(
+                    tagMapper.transformToEntity(
+                        tag.copy()
+                    )
+                )
+            }
+    }
 }

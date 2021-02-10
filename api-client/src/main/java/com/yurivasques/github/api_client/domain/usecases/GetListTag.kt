@@ -1,5 +1,6 @@
 package com.yurivasques.github.api_client.domain.usecases
 
+import android.util.Log
 import com.yurivasques.github.api_client.domain.exception.NoConnectedException
 import com.yurivasques.github.api_client.domain.functions.StatementSingle
 import com.yurivasques.github.api_client.domain.model.Repo
@@ -19,17 +20,19 @@ class GetListTag
 ) : SingleUseCase<List<Tag>, GetListTag.Param>(useCaseScheduler, logger) {
 
     override fun build(param: Param): Single<List<Tag>> {
-        val getCacheListTag = tagRepository.getCacheListTag(param.userName, param.repoName)
+        val getCacheListTag = tagRepository.getCacheListTag(param.repoId)
 
         val cacheSingle = getCacheListTag
             .map { if (it.isEmpty()) throw NoConnectedException else it }
 
-        val netSingle = tagRepository.getListTag(param.userName, param.repoName)
-            .flatMap { tagRepository.saveListTag(it).andThen(getCacheListTag) }
+        val netSingle = tagRepository.getListTag(param.userName, param.repoName, param.repoId)
+            .flatMap {
+                tagRepository.saveListTag(it).andThen(getCacheListTag)
+            }
 
         return StatementSingle.ifThen(tagRepository.isConnected, netSingle, cacheSingle)
     }
 
-    data class Param(val userName: String, val repoName: String)
+    data class Param(val userName: String, val repoName: String, val repoId: Long)
 
 }

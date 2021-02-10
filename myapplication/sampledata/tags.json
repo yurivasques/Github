@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "name": "0.0.8",
+      "zipball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/zipball/0.0.8",
+      "tarball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/tarball/0.0.8",
+      "commit": {
+        "sha": "35fc455a3315db06330a1cf594d5a861a9e00c7f",
+        "url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/commits/35fc455a3315db06330a1cf594d5a861a9e00c7f"
+      },
+      "node_id": "MDM6UmVmMjAyMzg0OTQ4OnJlZnMvdGFncy8wLjAuOA=="
+    },
+    {
+      "name": "0.0.7",
+      "zipball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/zipball/0.0.7",
+      "tarball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/tarball/0.0.7",
+      "commit": {
+        "sha": "cef96ea3c530d083655ef3aac64e39a59913933e",
+        "url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/commits/cef96ea3c530d083655ef3aac64e39a59913933e"
+      },
+      "node_id": "MDM6UmVmMjAyMzg0OTQ4OnJlZnMvdGFncy8wLjAuNw=="
+    },
+    {
+      "name": "0.0.6",
+      "zipball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/zipball/0.0.6",
+      "tarball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/tarball/0.0.6",
+      "commit": {
+        "sha": "8217eec2051fc82e4f3972331016840b6331b32b",
+        "url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/commits/8217eec2051fc82e4f3972331016840b6331b32b"
+      },
+      "node_id": "MDM6UmVmMjAyMzg0OTQ4OnJlZnMvdGFncy8wLjAuNg=="
+    },
+    {
+      "name": "0.0.5",
+      "zipball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/zipball/0.0.5",
+      "tarball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/tarball/0.0.5",
+      "commit": {
+        "sha": "527c2aee0acbd7d2aac71a970383ec82e60645f1",
+        "url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/commits/527c2aee0acbd7d2aac71a970383ec82e60645f1"
+      },
+      "node_id": "MDM6UmVmMjAyMzg0OTQ4OnJlZnMvdGFncy8wLjAuNQ=="
+    },
+    {
+      "name": "0.0.4",
+      "zipball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/zipball/0.0.4",
+      "tarball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/tarball/0.0.4",
+      "commit": {
+        "sha": "f09e91fda0fd6b0db55d5a07179fb617cf20ecd2",
+        "url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/commits/f09e91fda0fd6b0db55d5a07179fb617cf20ecd2"
+      },
+      "node_id": "MDM6UmVmMjAyMzg0OTQ4OnJlZnMvdGFncy8wLjAuNA=="
+    },
+    {
+      "name": "0.0.3",
+      "zipball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/zipball/0.0.3",
+      "tarball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/tarball/0.0.3",
+      "commit": {
+        "sha": "5f0cc2c84211aad8f303671d42d4a3fa038f18f8",
+        "url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/commits/5f0cc2c84211aad8f303671d42d4a3fa038f18f8"
+      },
+      "node_id": "MDM6UmVmMjAyMzg0OTQ4OnJlZnMvdGFncy8wLjAuMw=="
+    },
+    {
+      "name": "0.0.2",
+      "zipball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/zipball/0.0.2",
+      "tarball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/tarball/0.0.2",
+      "commit": {
+        "sha": "bf313dbc5b14f3adeb9a5f68ac3ca2f1ca3f633c",
+        "url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/commits/bf313dbc5b14f3adeb9a5f68ac3ca2f1ca3f633c"
+      },
+      "node_id": "MDM6UmVmMjAyMzg0OTQ4OnJlZnMvdGFncy8wLjAuMg=="
+    },
+    {
+      "name": "0.0.1",
+      "zipball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/zipball/0.0.1",
+      "tarball_url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/tarball/0.0.1",
+      "commit": {
+        "sha": "d9191d94863fb355ff3e0689fcb85fcb97428a23",
+        "url": "https://api.github.com/repos/gazeus-games/bitrise-step-open-vpn/commits/d9191d94863fb355ff3e0689fcb85fcb97428a23"
+      },
+      "node_id": "MDM6UmVmMjAyMzg0OTQ4OnJlZnMvdGFncy8wLjAuMQ=="
+    }
+  ]
+}

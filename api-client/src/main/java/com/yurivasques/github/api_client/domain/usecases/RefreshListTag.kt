@@ -15,18 +15,18 @@ class RefreshListTag
 @Inject internal constructor(
     private val tagRepository: TagRepository,
     useCaseScheduler: UseCaseScheduler? = null, logger: Logger? = null
-) : SingleUseCase<List<Tag>, GetListTag.Param>(useCaseScheduler, logger) {
+) : SingleUseCase<List<Tag>, RefreshListTag.Param>(useCaseScheduler, logger) {
 
-    override fun build(param: GetListTag.Param): Single<List<Tag>> =
+    override fun build(param: Param): Single<List<Tag>> =
         Single.just(tagRepository.isConnected)
             .filter(ConnectionFilter())
             .flatMapSingle { _ ->
-                tagRepository.getListTag(param.userName, param.repoName)
+                tagRepository.getListTag(param.userName, param.repoName, param.repoId)
                     .flatMap {
                         tagRepository.saveListTag(it)
-                            .andThen(tagRepository.getCacheListTag(param.userName, param.repoName))
+                            .andThen(tagRepository.getCacheListTag(param.repoId))
                     }
             }.toSingle()
 
-    data class Param(val userName: String, val repoName: String)
+    data class Param(val userName: String, val repoName: String, val repoId: Long)
 }

@@ -13,6 +13,6 @@ interface RepoListView :
 
     fun intentErrorRetry(): Observable<String>
 
-    //fun openRepo(): Observable<Pair<Repo, String>>
+    fun openRepo(): Observable<Pair<Repo, String>>
 
 }

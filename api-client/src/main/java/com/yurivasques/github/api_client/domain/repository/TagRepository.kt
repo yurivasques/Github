@@ -10,9 +10,11 @@ interface TagRepository {
 
     val isConnected: Boolean
 
-    fun getListTag(userName: String, repoName: String): Single<List<Tag>>
+    fun getListTag(userName: String, repoName: String, repoId: Long): Single<List<Tag>>
 
-    fun getCacheListTag(userName: String, repoName: String): Single<List<Tag>>
+    fun getCacheListTag(repoId: Long): Single<List<Tag>>
+
+    fun getAllCacheListTag(): Single<List<Tag>>
 
     fun saveListTag(tagList: List<Tag>): Completable
 

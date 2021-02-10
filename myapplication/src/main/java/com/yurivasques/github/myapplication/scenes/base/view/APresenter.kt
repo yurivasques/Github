@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 abstract class APresenter<in View : LoadDataView<ViewModel>, ViewModel>(private val errorMessageFactory: ErrorMessageFactory) {
 
-    private val composite = CompositeDisposable()
+    protected val composite = CompositeDisposable()
 
     @set:VisibleForTesting
     var testMode: Boolean = false

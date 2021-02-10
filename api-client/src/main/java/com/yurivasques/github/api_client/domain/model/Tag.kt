@@ -1,8 +1,7 @@
 package com.yurivasques.github.api_client.domain.model
 
 data class Tag (
-    val id: Long,
+    val id: String,
     val name: String,
-    val repoName: String,
-    val userName: String
+    val repoId: Long
 )

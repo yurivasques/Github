@@ -1,5 +1,6 @@
 package com.yurivasques.github.api_client.data.persistence.processor
 
+import android.util.Log
 import com.yurivasques.github.api_client.data.persistence.dao.RepoDao
 import com.yurivasques.github.api_client.data.persistence.dao.TagDao
 import com.yurivasques.github.api_client.data.persistence.entity.RepoEntity
@@ -15,10 +16,14 @@ import javax.inject.Singleton
 class TagProcessor
 @Inject internal constructor(private val dao: TagDao) : BaseProcessor<TagEntity>(dao) {
 
-    fun get(id: Long): Maybe<TagEntity> =
+    fun get(id: String): Maybe<TagEntity> =
         Maybe.fromCallable { dao.get(id) }
 
-    fun getAll(userName: String, repoName: String): Single<List<TagEntity>> =
-        Single.fromCallable { dao.getAll(userName, repoName) }
+    fun getAll(repoId: Long): Single<List<TagEntity>> {
+        return Single.fromCallable { dao.getAll(repoId) }
+    }
+
+    fun getAll(): Single<List<TagEntity>> =
+        Single.fromCallable { dao.getAll() }
 
 }

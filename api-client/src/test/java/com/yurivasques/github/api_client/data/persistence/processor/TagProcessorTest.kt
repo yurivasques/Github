@@ -70,7 +70,7 @@ class TagProcessorTest {
 
     @Test
     fun getTag() {
-        val id = 1L
+        val id = "id1"
         val entity = mock<TagEntity>()
 
         whenever(dao.get(id)).thenReturn(entity)
@@ -82,7 +82,7 @@ class TagProcessorTest {
 
     @Test
     fun getTagEmpty() {
-        val id = 1L
+        val id = "id1"
 
         whenever(dao.get(id)).thenReturn(null)
 
@@ -92,13 +92,12 @@ class TagProcessorTest {
 
     @Test
     fun getListTag() {
-        val userName = "userName"
-        val repoName = "repoName"
+        val repoId = 1L
         val tagList = mock<List<TagEntity>>()
 
-        whenever(dao.getAll(userName, repoName)).thenReturn(tagList)
+        whenever(dao.getAll(repoId)).thenReturn(tagList)
 
-        processor.getAll(userName, repoName).test()
+        processor.getAll(repoId).test()
             .assertValueCount(1)
             .assertResult(tagList)
     }

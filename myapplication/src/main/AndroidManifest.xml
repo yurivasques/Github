@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".scenes.repolist.RepoListActivity" />
+        <activity android:name=".scenes.repotaglist.RepoTagListActivity" />
     </application>
 
 </manifest>

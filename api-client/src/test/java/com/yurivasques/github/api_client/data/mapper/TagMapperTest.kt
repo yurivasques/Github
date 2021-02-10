@@ -23,36 +23,38 @@ class TagMapperTest {
     //region DTO to MODEL
     @Test
     fun dtoToModel() {
-        val userName = "userName"
-        val repoName = "repoName"
-        val dto = TagDTO(1, "tagName")
-        val model = mapper.transform(dto, userName, repoName)
+        val repoId = 1L
+        val dto = TagDTO("id1","tagName")
+        val model = mapper.transform(dto, repoId)
 
-        model.compareTo(dto)
+        model.compareTo(dto, repoId)
     }
 
     @Test
     fun dtoCollectionToModelList() {
-        val userName = "userName"
-        val repoName = "repoName"
-        val dtos = listOf(TagDTO(1, "tagName"))
-        val models = mapper.transform(dtos, userName, repoName)
+        val repoId = 1L
+        val dtos = listOf(TagDTO("id1","tagName1"), TagDTO("id2","tagName2"))
+        val models = mapper.transform(dtos, repoId)
 
         assertNotNull(models)
-        assertTrue(models.size == 1)
+        assertTrue(models.size == 2)
 
-        val dto = dtos[0]
-        val model = models[0]
+        var dto = dtos[0]
+        var model = models[0]
 
-        model.compareTo(dto)
+        model.compareTo(dto, repoId)
+
+        dto = dtos[1]
+        model = models[1]
+
+        model.compareTo(dto, repoId)
     }
 
-    private fun Tag.compareTo(dto: TagDTO) {
+    private fun Tag.compareTo(dto: TagDTO, repoId: Long) {
         assertNotNull(this)
-        assertEquals(dto.id, id)
         assertEquals(dto.name, name)
-        assertEquals(userName, userName)
-        assertEquals(repoName, repoName)
+        assertEquals(dto.id, id)
+        assertEquals(repoId, this.repoId)
     }
     //endregion
 
@@ -60,7 +62,7 @@ class TagMapperTest {
     @Test
     fun entityToModel() {
         val entity =
-            TagEntity(1, "tagName", "repoName", "userName")
+            TagEntity("id1", "tagName", 1L)
         val model = mapper.transform(entity)
 
         model.compareTo(entity)
@@ -69,14 +71,19 @@ class TagMapperTest {
     @Test
     fun entityCollectionToModelList() {
         val entities =
-            listOf(TagEntity(1, "tagName", "repoName", "userName"))
+            listOf(TagEntity("id1", "tagName", 1L), TagEntity("id2", "tagName2", 2L))
         val models = mapper.transform(entities)
 
         assertNotNull(models)
-        assertTrue(models.size == 1)
+        assertTrue(models.size == 2)
 
-        val entity = entities[0]
-        val model = models[0]
+        var entity = entities[0]
+        var model = models[0]
+
+        model.compareTo(entity)
+
+        entity = entities[0]
+        model = models[0]
 
         model.compareTo(entity)
     }
@@ -85,15 +92,14 @@ class TagMapperTest {
         assertNotNull(this)
         assertEquals(entity.id, id)
         assertEquals(entity.name, name)
-        assertEquals(entity.repoName, repoName)
-        assertEquals(entity.userName, userName)
+        assertEquals(entity.repoId, repoId)
     }
     //endregion
 
     //region MODEL to ENTITY
     @Test
     fun modelToEntity() {
-        val model = Tag(1, "tagName", "repoName", "userName")
+        val model = Tag("id1", "tagName", 1L)
         val entity = mapper.transformToEntity(model)
 
         entity.compareTo(model)
@@ -102,14 +108,19 @@ class TagMapperTest {
     @Test
     fun modelCollectionToEntityList() {
         val models =
-            listOf(Tag(1, "repoName", "description", "http://myrepo.com"))
+            listOf(Tag("id1", "tagName", 1L), Tag("id2", "tagName2", 2L))
         val entities = mapper.transformToEntity(models)
 
         assertNotNull(entities)
-        assertTrue(entities.size == 1)
+        assertTrue(entities.size == 2)
 
-        val model = models[0]
-        val entity = entities[0]
+        var model = models[0]
+        var entity = entities[0]
+
+        entity.compareTo(model)
+
+        model = models[0]
+        entity = entities[0]
 
         entity.compareTo(model)
     }
@@ -118,8 +129,7 @@ class TagMapperTest {
         assertNotNull(this)
         assertEquals(model.id, id)
         assertEquals(model.name, name)
-        assertEquals(model.repoName, repoName)
-        assertEquals(model.userName, userName)
+        assertEquals(model.repoId, repoId)
     }
     //endregion
 

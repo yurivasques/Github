@@ -14,3 +14,5 @@ fun AppCompatActivity.getLongExtra(key: String): Long = intent!!.extras!!.getLon
 fun AppCompatActivity.getBooleanExtra(key: String): Boolean = intent!!.extras!!.getBoolean(key)
 
 fun AppCompatActivity.getStringExtra(key: String): String = intent!!.extras!!.getString(key)!!
+
+fun AppCompatActivity.getNullableStringExtra(key: String): String? = intent!!.extras!!.getString(key)

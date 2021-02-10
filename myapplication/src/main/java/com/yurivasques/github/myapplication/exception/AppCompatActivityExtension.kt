@@ -9,15 +9,6 @@ fun AppCompatActivity.addFragment(containerViewId: Int, fragment: Fragment) {
     supportFragmentManager.beginTransaction().replace(containerViewId, fragment).commit()
 }
 
-fun AppCompatActivity.enableToolbar(enableBack: Boolean = false, title: String? = null, view: View) {
-    val toolbar = view?.findViewById<Toolbar>(com.yurivasques.github.myapplication.R.id.toolbar)
-    setSupportActionBar(toolbar)
-    title?.also { supportActionBar?.title = title }
-    if (enableBack) {
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
-}
-
 fun AppCompatActivity.getLongExtra(key: String): Long = intent!!.extras!!.getLong(key)
 
 fun AppCompatActivity.getBooleanExtra(key: String): Boolean = intent!!.extras!!.getBoolean(key)
