@@ -1,6 +1,5 @@
-package com.yurivasques.github.myapplication.scenes.repolist
+package com.yurivasques.github.myapplication.scenes.repoList
 
-import android.util.Log
 import com.yurivasques.github.api_client.data.extensions.shareReplay
 import com.yurivasques.github.api_client.data.extensions.startWithSingle
 import com.yurivasques.github.api_client.domain.functions.DelayFunction

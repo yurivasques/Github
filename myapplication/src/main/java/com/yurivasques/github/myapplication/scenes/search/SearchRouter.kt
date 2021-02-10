@@ -1,7 +1,7 @@
 package com.yurivasques.github.myapplication.scenes.search
 
 import androidx.appcompat.app.AppCompatActivity
-import com.yurivasques.github.myapplication.scenes.repolist.RepoListActivity
+import com.yurivasques.github.myapplication.scenes.repoList.RepoListActivity
 import javax.inject.Inject
 
 class SearchRouter

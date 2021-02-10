@@ -1,8 +1,7 @@
-package com.yurivasques.github.myapplication.scenes.repolist
+package com.yurivasques.github.myapplication.scenes.repoList
 
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.yurivasques.github.myapplication.scenes.repotaglist.RepoTagListActivity
+import com.yurivasques.github.myapplication.scenes.repoTagList.RepoTagListActivity
 import javax.inject.Inject
 
 class RepoListRouter

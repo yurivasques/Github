@@ -1,7 +1,6 @@
-package com.yurivasques.github.myapplication.scenes.repolist
+package com.yurivasques.github.myapplication.scenes.repoList
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView

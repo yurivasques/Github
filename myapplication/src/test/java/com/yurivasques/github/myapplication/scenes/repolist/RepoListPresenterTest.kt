@@ -1,4 +1,4 @@
-package com.yurivasques.github.myapplication.scenes.repolist
+package com.yurivasques.github.myapplication.scenes.repoList
 
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn

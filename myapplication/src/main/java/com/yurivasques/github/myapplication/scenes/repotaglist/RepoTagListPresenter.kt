@@ -1,7 +1,5 @@
-package com.yurivasques.github.myapplication.scenes.repotaglist
+package com.yurivasques.github.myapplication.scenes.repoTagList
 
-import android.annotation.SuppressLint
-import android.util.Log
 import com.yurivasques.github.api_client.data.extensions.shareReplay
 import com.yurivasques.github.api_client.data.extensions.startWithSingle
 import com.yurivasques.github.api_client.domain.functions.DelayFunction

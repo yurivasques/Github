@@ -1,4 +1,4 @@
-package com.yurivasques.github.myapplication.scenes.repotaglist
+package com.yurivasques.github.myapplication.scenes.repoTagList
 
 import com.yurivasques.github.api_client.domain.model.Tag
 import com.yurivasques.github.myapplication.scenes.base.view.ContentState

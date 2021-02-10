@@ -17,8 +17,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".scenes.repolist.RepoListActivity" />
-        <activity android:name=".scenes.repotaglist.RepoTagListActivity" />
+        <activity android:name=".scenes.repoList.RepoListActivity"
+            android:parentActivityName=".scenes.search.SearchActivity"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".scenes.search.SearchActivity" />
+        </activity>
+        <activity android:name=".scenes.repoTagList.RepoTagListActivity"
+            android:parentActivityName=".scenes.repoList.RepoListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".scenes.repoList.RepoListActivity" />
+        </activity>
     </application>
 
 </manifest>

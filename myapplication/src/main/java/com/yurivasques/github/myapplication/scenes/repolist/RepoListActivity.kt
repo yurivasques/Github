@@ -1,4 +1,4 @@
-package com.yurivasques.github.myapplication.scenes.repolist
+package com.yurivasques.github.myapplication.scenes.repoList
 
 import android.content.Context
 import android.content.Intent

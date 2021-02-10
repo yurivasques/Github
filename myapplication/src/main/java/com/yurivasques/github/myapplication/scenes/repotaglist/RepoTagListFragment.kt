@@ -1,8 +1,6 @@
-package com.yurivasques.github.myapplication.scenes.repotaglist
+package com.yurivasques.github.myapplication.scenes.repoTagList
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView

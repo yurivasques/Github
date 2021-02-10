@@ -1,4 +1,4 @@
-package com.yurivasques.github.myapplication.scenes.repolist
+package com.yurivasques.github.myapplication.scenes.repoList
 
 import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.myapplication.scenes.base.view.ContentState

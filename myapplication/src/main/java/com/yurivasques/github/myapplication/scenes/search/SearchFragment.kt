@@ -8,9 +8,6 @@ import android.widget.FrameLayout
 import com.yurivasques.github.myapplication.R
 import com.yurivasques.github.myapplication.di.PerActivity
 import com.yurivasques.github.myapplication.scenes.base.view.ABaseDataFragment
-import com.yurivasques.github.myapplication.scenes.repolist.RepoListActivity
-import com.yurivasques.github.myapplication.scenes.repolist.RepoListPresenter
-import com.yurivasques.github.myapplication.scenes.repolist.RepoListRouter
 import javax.inject.Inject
 
 class SearchFragment : ABaseDataFragment(R.layout.search_fragment) {

@@ -1,4 +1,4 @@
-package com.yurivasques.github.myapplication.scenes.repotaglist
+package com.yurivasques.github.myapplication.scenes.repoTagList
 
 import android.view.LayoutInflater
 import android.view.View

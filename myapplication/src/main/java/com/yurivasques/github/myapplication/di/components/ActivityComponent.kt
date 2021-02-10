@@ -3,8 +3,8 @@ package com.yurivasques.github.myapplication.di.components
 import android.app.Activity
 import com.yurivasques.github.myapplication.di.PerActivity
 import com.yurivasques.github.myapplication.di.modules.ActivityModule
-import com.yurivasques.github.myapplication.scenes.repolist.RepoListFragment
-import com.yurivasques.github.myapplication.scenes.repotaglist.RepoTagListFragment
+import com.yurivasques.github.myapplication.scenes.repoList.RepoListFragment
+import com.yurivasques.github.myapplication.scenes.repoTagList.RepoTagListFragment
 import com.yurivasques.github.myapplication.scenes.search.SearchFragment
 import dagger.BindsInstance
 import dagger.Subcomponent

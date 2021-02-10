@@ -1,10 +1,10 @@
-package com.yurivasques.github.myapplication.scenes.repotaglist
+package com.yurivasques.github.myapplication.scenes.repoTagList
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import com.yurivasques.github.myapplication.R
 import com.yurivasques.github.myapplication.extensions.addFragment
 import com.yurivasques.github.myapplication.extensions.getLongExtra
@@ -22,7 +22,6 @@ class RepoTagListActivity : ABaseActivity(R.layout.activity_main) {
 
         fun newIntent(context: Context, repoId: Long, repoName: String, repoDescription: String?, userName: String): Intent =
             Intent(context, RepoTagListActivity::class.java).apply {
-                Log.d("RepoTagListActivity:newIntent", "$repoId")
                 putExtra(EXTRA_REPO_ID, repoId)
                 putExtra(EXTRA_REPO_NAME, repoName)
 
@@ -43,7 +42,6 @@ class RepoTagListActivity : ABaseActivity(R.layout.activity_main) {
     }
 
     private fun initializeActivity(savedInstanceState: Bundle?) {
-        Log.d("initializeActivity", "$repoId")
         if (savedInstanceState == null) {
             addFragment(R.id.container, RepoTagListFragment.newInstance(repoId, repoName, repoDescription, userName))
         }
