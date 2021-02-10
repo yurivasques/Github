@@ -2,7 +2,6 @@ package com.yurivasques.github.api_client.domain.repository
 
 import com.yurivasques.github.api_client.domain.model.Repo
 import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Single
 
 interface RepoRepository {

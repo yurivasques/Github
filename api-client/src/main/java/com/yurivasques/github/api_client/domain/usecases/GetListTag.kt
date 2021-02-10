@@ -1,11 +1,8 @@
 package com.yurivasques.github.api_client.domain.usecases
 
-import android.util.Log
 import com.yurivasques.github.api_client.domain.exception.NoConnectedException
 import com.yurivasques.github.api_client.domain.functions.StatementSingle
-import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.api_client.domain.model.Tag
-import com.yurivasques.github.api_client.domain.repository.RepoRepository
 import com.yurivasques.github.api_client.domain.repository.TagRepository
 import com.yurivasques.github.api_client.domain.usecases.base.Logger
 import com.yurivasques.github.api_client.domain.usecases.base.SingleUseCase

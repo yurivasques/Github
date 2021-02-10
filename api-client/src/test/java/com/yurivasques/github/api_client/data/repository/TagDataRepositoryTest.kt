@@ -3,16 +3,11 @@ package com.yurivasques.github.api_client.data.repository
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.yurivasques.github.api_client.data.di.providers.NetworkChecker
-import com.yurivasques.github.api_client.data.mapper.RepoMapper
 import com.yurivasques.github.api_client.data.mapper.TagMapper
 import com.yurivasques.github.api_client.data.net.GitHubApi
-import com.yurivasques.github.api_client.data.net.dto.RepoDTO
 import com.yurivasques.github.api_client.data.net.dto.TagDTO
-import com.yurivasques.github.api_client.data.persistence.entity.RepoEntity
 import com.yurivasques.github.api_client.data.persistence.entity.TagEntity
-import com.yurivasques.github.api_client.data.persistence.processor.RepoProcessor
 import com.yurivasques.github.api_client.data.persistence.processor.TagProcessor
-import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.api_client.domain.model.Tag
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Maybe
@@ -21,7 +16,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)

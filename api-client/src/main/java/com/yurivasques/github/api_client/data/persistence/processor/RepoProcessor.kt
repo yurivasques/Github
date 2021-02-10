@@ -3,7 +3,6 @@ package com.yurivasques.github.api_client.data.persistence.processor
 import com.yurivasques.github.api_client.data.persistence.dao.RepoDao
 import com.yurivasques.github.api_client.data.persistence.entity.RepoEntity
 import com.yurivasques.github.api_client.data.persistence.processor.base.BaseProcessor
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject

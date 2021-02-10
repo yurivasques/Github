@@ -2,9 +2,7 @@ package com.yurivasques.github.api_client.data.persistence.processor
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.yurivasques.github.api_client.data.persistence.dao.RepoDao
 import com.yurivasques.github.api_client.data.persistence.dao.TagDao
-import com.yurivasques.github.api_client.data.persistence.entity.RepoEntity
 import com.yurivasques.github.api_client.data.persistence.entity.TagEntity
 import com.yurivasques.github.api_client.domain.exception.PersistenceException
 import org.junit.Before

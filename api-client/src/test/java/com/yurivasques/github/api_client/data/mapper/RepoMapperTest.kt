@@ -4,7 +4,8 @@ import com.yurivasques.github.api_client.data.net.dto.RepoDTO
 import com.yurivasques.github.api_client.data.persistence.entity.RepoEntity
 import com.yurivasques.github.api_client.domain.model.Repo
 import org.junit.Assert
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 

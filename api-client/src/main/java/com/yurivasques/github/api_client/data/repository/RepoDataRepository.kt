@@ -1,7 +1,6 @@
 package com.yurivasques.github.api_client.data.repository
 
 import android.annotation.SuppressLint
-import android.util.Log
 import com.yurivasques.github.api_client.data.di.providers.NetworkChecker
 import com.yurivasques.github.api_client.data.mapper.RepoMapper
 import com.yurivasques.github.api_client.data.net.GitHubApi

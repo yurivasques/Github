@@ -1,16 +1,11 @@
 package com.yurivasques.github.api_client.data.repository
 
 import android.annotation.SuppressLint
-import android.util.Log
 import com.yurivasques.github.api_client.data.di.providers.NetworkChecker
-import com.yurivasques.github.api_client.data.mapper.RepoMapper
 import com.yurivasques.github.api_client.data.mapper.TagMapper
 import com.yurivasques.github.api_client.data.net.GitHubApi
-import com.yurivasques.github.api_client.data.persistence.processor.RepoProcessor
 import com.yurivasques.github.api_client.data.persistence.processor.TagProcessor
-import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.api_client.domain.model.Tag
-import com.yurivasques.github.api_client.domain.repository.RepoRepository
 import com.yurivasques.github.api_client.domain.repository.TagRepository
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single

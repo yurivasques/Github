@@ -3,7 +3,6 @@ package com.yurivasques.github.api_client.domain.functions
 import com.yurivasques.github.api_client.domain.exception.PersistenceException
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.functions.Function
-import kotlin.jvm.Throws
 
 class CheckPersistenceResultFunction : Function<Boolean, Completable> {
 

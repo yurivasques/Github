@@ -4,7 +4,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.yurivasques.github.api_client.DatabaseFactoryTest
 import com.yurivasques.github.api_client.data.persistence.AppDatabase
-import com.yurivasques.github.api_client.data.persistence.entity.RepoEntity
 import com.yurivasques.github.api_client.data.persistence.entity.TagEntity
 import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Single
@@ -19,6 +18,7 @@ open class TagDaoTest {
     companion object {
         private const val USER_NAME = "userName"
         private const val REPO_NAME = "repoName"
+        private const val REPO_ID = 1L
     }
 
     private lateinit var database: AppDatabase
@@ -36,20 +36,21 @@ open class TagDaoTest {
 
     @Test
     fun insert() {
-        val entity = TagEntity(null,"name", REPO_NAME, USER_NAME)
+        val id = "id1"
+        val entity = TagEntity(id,"name", REPO_ID)
 
         assert(database.tagDao().insert(entity) > 0)
 
-//        Maybe.fromCallable { database.tagDao().get(id) }.test()
-//            .assertNoErrors()
-//            .assertValueCount(1)
-//            .assertValue { it.compareTo(entity) }
+        Maybe.fromCallable { database.tagDao().get(id) }.test()
+            .assertNoErrors()
+            .assertValueCount(1)
+            .assertValue { it.compareTo(entity) }
     }
 
     @Test
     fun delete() {
-        val id = 1L
-        val entity = TagEntity(id, "name", REPO_NAME, USER_NAME)
+        val id = "id1"
+        val entity = TagEntity(id, "name", REPO_ID)
 
         assert(database.tagDao().insert(entity) > 0)
 
@@ -68,13 +69,13 @@ open class TagDaoTest {
     @Test
     fun get() {
         // Check table is empty
-        val id = 1L
+        val id = "id1"
 
         Maybe.fromCallable { database.tagDao().get(id) }.test()
             .assertResult()
 
         // Insert a repo & select it
-        val entity = TagEntity(id, "name", REPO_NAME, USER_NAME)
+        val entity = TagEntity(id, "name", REPO_ID)
 
         assert(database.tagDao().insert(entity) > 0)
 
@@ -87,19 +88,19 @@ open class TagDaoTest {
     @Test
     fun getAll() {
         // Check table is empty
-        Single.fromCallable { database.tagDao().getAll(USER_NAME, REPO_NAME) }.test()
+        Single.fromCallable { database.tagDao().getAll(REPO_ID) }.test()
             .assertNoErrors()
             .assertValueCount(1)
             .assertValue { it.isEmpty() }
 
         // Insert two repos & select it
-        val entity1 = TagEntity(1, "name", REPO_NAME, USER_NAME)
-        val entity2 = TagEntity(1, "name", REPO_NAME, USER_NAME)
+        val entity1 = TagEntity("id1", "name", REPO_ID)
+        val entity2 = TagEntity("id2", "name", REPO_ID)
 
         assert(database.tagDao().insert(entity1) > 0)
         assert(database.tagDao().insert(entity2) > 0)
 
-        Single.fromCallable { database.tagDao().getAll(USER_NAME, REPO_NAME) }.test()
+        Single.fromCallable { database.tagDao().getAll(REPO_ID) }.test()
             .assertNoErrors()
             .assertValueCount(1)
             .assertValue {
@@ -113,8 +114,7 @@ open class TagDaoTest {
         this?.run {
             id == entity.id
                     && name == entity.name
-                    && userName == entity.userName
-                    && repoName == entity.repoName
+                    && repoId == entity.repoId
 
         } ?: false
 

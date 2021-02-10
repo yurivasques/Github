@@ -5,7 +5,6 @@ import io.reactivex.rxjava3.core.ObservableSource
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.functions.Function
 import java.util.concurrent.TimeUnit
-import kotlin.jvm.Throws
 
 class DelayFunction<T>(private val postScheduler: Scheduler) :
     Function<Throwable, ObservableSource<out T>> {

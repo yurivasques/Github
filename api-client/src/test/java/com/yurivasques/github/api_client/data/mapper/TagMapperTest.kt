@@ -1,12 +1,8 @@
 package com.yurivasques.github.api_client.data.mapper
 
-import com.yurivasques.github.api_client.data.net.dto.RepoDTO
 import com.yurivasques.github.api_client.data.net.dto.TagDTO
-import com.yurivasques.github.api_client.data.persistence.entity.RepoEntity
 import com.yurivasques.github.api_client.data.persistence.entity.TagEntity
-import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.api_client.domain.model.Tag
-import org.junit.Assert
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
