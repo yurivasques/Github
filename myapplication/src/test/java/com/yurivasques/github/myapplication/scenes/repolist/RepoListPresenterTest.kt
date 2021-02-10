@@ -9,7 +9,6 @@ import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.api_client.domain.usecases.GetListRepo
 import com.yurivasques.github.api_client.domain.usecases.RefreshListRepo
 import com.yurivasques.github.myapplication.exception.ErrorMessageFactoryTest
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.TestScheduler

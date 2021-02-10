@@ -8,7 +8,6 @@ import com.yurivasques.github.myapplication.scenes.repotaglist.RepoTagListFragme
 import com.yurivasques.github.myapplication.scenes.search.SearchFragment
 import dagger.BindsInstance
 import dagger.Subcomponent
-import javax.inject.Inject
 
 @PerActivity
 @Subcomponent(modules = [(ActivityModule::class)])

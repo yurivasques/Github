@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.myapplication.R
@@ -38,7 +37,7 @@ class ReposAdapter : RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(
             repo: Repo,
-            repoClickIntent: PublishSubject<Repo>,
+            repoClickIntent: PublishSubject<Repo>
         ) = with(itemView) {
 
             val textRepoName = itemView.findViewById<TextView>(R.id.textRepoName)

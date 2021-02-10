@@ -15,30 +15,24 @@ abstract class ABaseDataFragment(@LayoutRes contentLayoutId: Int) : ABaseFragmen
     lateinit var progressLayout: View
     @PerApplication
     lateinit var btnErrorRetry: TextView
-    @PerApplication
-    lateinit var errorProgress: View
-    @PerApplication
-    lateinit var textErrorDescription: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        progressLayout = view?.findViewById(com.yurivasques.github.myapplication.R.id.progress_layout)!!
-        btnErrorRetry = view?.findViewById(com.yurivasques.github.myapplication.R.id.btnErrorRetry)!!
-        //errorProgress = view?.findViewById(com.yurivasques.github.myapplication.R.id.errorProgress)!!
-        //textErrorDescription = errorProgress.findViewById(com.yurivasques.github.myapplication.R.id.textErrorDescription)
+        progressLayout = view.findViewById(com.yurivasques.github.myapplication.R.id.progress_layout)!!
+        btnErrorRetry = view.findViewById(com.yurivasques.github.myapplication.R.id.btnErrorRetry)!!
         super.onViewCreated(view, savedInstanceState)
     }
 
     //region RENDER
     protected fun showLoading(visible: Boolean) {
-        progressLayout?.visibility = if (visible) View.VISIBLE else View.GONE
+        progressLayout.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
-    protected fun showRefreshingLoading(swipeRefreshLayout: SwipeRefreshLayout, visible: Boolean) {
-        swipeRefreshLayout.isRefreshing = visible
+    protected fun showRefreshingLoading(swipeRefreshLayout: SwipeRefreshLayout) {
+        swipeRefreshLayout.isRefreshing = false
     }
 
     protected fun showRetryLoading(visible: Boolean) {
-        btnErrorRetry?.isClickable = !visible
+        btnErrorRetry.isClickable = !visible
         view?.findViewById<View>(com.yurivasques.github.myapplication.R.id.errorProgress)?.visibility = if (visible) View.VISIBLE else View.INVISIBLE
     }
 

@@ -15,11 +15,7 @@ class TagProcessor
     fun get(id: String): Maybe<TagEntity> =
         Maybe.fromCallable { dao.get(id) }
 
-    fun getAll(repoId: Long): Single<List<TagEntity>> {
-        return Single.fromCallable { dao.getAll(repoId) }
-    }
-
-    fun getAll(): Single<List<TagEntity>> =
-        Single.fromCallable { dao.getAll() }
+    fun getAll(repoId: Long): Single<List<TagEntity>> =
+        Single.fromCallable { dao.getAll(repoId) }
 
 }

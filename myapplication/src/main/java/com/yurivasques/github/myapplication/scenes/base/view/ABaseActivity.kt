@@ -1,6 +1,5 @@
 package com.yurivasques.github.myapplication.scenes.base.view
 
-import android.app.Application
 import android.view.MenuItem
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity

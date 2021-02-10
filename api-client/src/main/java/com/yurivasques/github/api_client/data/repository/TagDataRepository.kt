@@ -23,20 +23,12 @@ class TagDataRepository (
 
     override fun getListTag(userName: String, repoName: String, repoId: Long): Single<List<Tag>> =
         gitHubApi.getListTags(userName, repoName)
-            .map {
-                tagMapper.transform(it, repoId)
-            }
+            .map { tagMapper.transform(it, repoId) }
 
-    @SuppressLint("LongLogTag")
     override fun getCacheListTag(repoId: Long): Single<List<Tag>> {
         return tagProcessor.getAll(repoId)
-            .map {
-                tagMapper.transform(it)
-            }
+            .map { tagMapper.transform(it) }
     }
-
-    override fun getAllCacheListTag(): Single<List<Tag>> =
-        tagProcessor.getAll().map { tagMapper.transform(it) }
 
     override fun saveListTag(tagList: List<Tag>): Completable =
         tagList.toObservable().flatMapCompletable { saveTag(it) }

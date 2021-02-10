@@ -32,5 +32,4 @@ class TagMapper
 
     fun transformToEntity(modelCollection: Collection<Tag>): List<TagEntity> =
         modelCollection.map { transformToEntity(it) }
-    //endregion
 }

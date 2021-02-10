@@ -5,14 +5,10 @@ import android.util.Log
 import com.yurivasques.github.api_client.data.extensions.shareReplay
 import com.yurivasques.github.api_client.data.extensions.startWithSingle
 import com.yurivasques.github.api_client.domain.functions.DelayFunction
-import com.yurivasques.github.api_client.domain.usecases.GetListRepo
 import com.yurivasques.github.api_client.domain.usecases.GetListTag
-import com.yurivasques.github.api_client.domain.usecases.RefreshListRepo
 import com.yurivasques.github.api_client.domain.usecases.RefreshListTag
 import com.yurivasques.github.myapplication.exception.ErrorMessageFactory
 import com.yurivasques.github.myapplication.scenes.base.view.APresenter
-import com.yurivasques.github.myapplication.scenes.repolist.RepoListView
-import com.yurivasques.github.myapplication.scenes.repolist.RepoListViewModel
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Scheduler
 import javax.inject.Inject
@@ -34,46 +30,26 @@ class RepoTagListPresenter
     }
 
     //region USE CASES TO VIEW MODEL
-    @SuppressLint("LongLogTag")
     private fun getListTag(getListTagParam: GetListTag.Param): Observable<RepoTagListViewModel> =
         getListTag.execute(getListTagParam).toObservable()
-            .map {
-                Log.d("RepoTagListPresenter:getListTag", "$it")
-                RepoTagListViewModel.createData(
-                    it
-                )
-            }
+            .map { RepoTagListViewModel.createData(it) }
             .startWithSingle(RepoTagListViewModel.createLoading())
             .onErrorReturn { onError(it) }
 
     private fun refreshListTag(refreshListTagParam: RefreshListTag.Param): Observable<RepoTagListViewModel> =
         refreshListTag.execute(refreshListTagParam).toObservable()
-            .map {
-                RepoTagListViewModel.createData(
-                    it
-                )
-            }
-            .onErrorReturn {
-                RepoTagListViewModel.createSnack(
-                    getErrorMessage(it)
-                )
-            }
+            .map { RepoTagListViewModel.createData(it) }
+            .onErrorReturn { RepoTagListViewModel.createSnack(getErrorMessage(it)) }
 
     private fun retryTag(getListTagParam: GetListTag.Param): Observable<RepoTagListViewModel> =
         getListTag.execute(getListTagParam).toObservable()
-            .map {
-                RepoTagListViewModel.createData(
-                    it
-                )
-            }
+            .map { RepoTagListViewModel.createData(it) }
             .startWithSingle(RepoTagListViewModel.createRetryLoading())
             .onErrorResumeNext(DelayFunction<RepoTagListViewModel>(scheduler))
             .onErrorReturn { onError(it) }
     //endregion
 
     private fun onError(error: Throwable): RepoTagListViewModel =
-        RepoTagListViewModel.createError(
-            getErrorMessage(error)
-        )
+        RepoTagListViewModel.createError(getErrorMessage(error))
 
 }

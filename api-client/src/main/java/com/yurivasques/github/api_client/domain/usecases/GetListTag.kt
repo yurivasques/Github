@@ -23,9 +23,7 @@ class GetListTag
             .map { if (it.isEmpty()) throw NoConnectedException else it }
 
         val netSingle = tagRepository.getListTag(param.userName, param.repoName, param.repoId)
-            .flatMap {
-                tagRepository.saveListTag(it).andThen(getCacheListTag)
-            }
+            .flatMap { tagRepository.saveListTag(it).andThen(getCacheListTag) }
 
         return StatementSingle.ifThen(tagRepository.isConnected, netSingle, cacheSingle)
     }

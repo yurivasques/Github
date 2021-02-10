@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.yurivasques.github.myapplication.R
-import com.yurivasques.github.myapplication.scenes.base.view.ABaseActivity
 import com.yurivasques.github.myapplication.extensions.addFragment
 import com.yurivasques.github.myapplication.extensions.getStringExtra
+import com.yurivasques.github.myapplication.scenes.base.view.ABaseActivity
 import io.reactivex.rxjava3.subjects.PublishSubject
 
 class RepoListActivity : ABaseActivity(R.layout.activity_main) {

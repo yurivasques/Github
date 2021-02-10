@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import com.yurivasques.github.myapplication.AndroidApplication
 import com.yurivasques.github.myapplication.di.components.ActivityComponent
 import com.yurivasques.github.myapplication.di.components.ApplicationComponent
-import com.yurivasques.github.myapplication.scenes.base.view.ABaseActivity
 
 abstract class ABaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) {
 

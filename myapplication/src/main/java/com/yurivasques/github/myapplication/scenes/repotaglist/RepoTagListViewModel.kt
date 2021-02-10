@@ -1,10 +1,8 @@
 package com.yurivasques.github.myapplication.scenes.repotaglist
 
-import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.api_client.domain.model.Tag
 import com.yurivasques.github.myapplication.scenes.base.view.ContentState
 import com.yurivasques.github.myapplication.scenes.base.view.LoadingState
-import com.yurivasques.github.myapplication.scenes.repolist.RepoListViewModel
 
 class RepoTagListViewModel(
     val loadingState: LoadingState = LoadingState.NONE,

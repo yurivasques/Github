@@ -18,9 +18,6 @@ abstract class TagDao : BaseDao<TagEntity> {
     @Query("SELECT * FROM $TAG_TABLE WHERE $TAG_REPO_ID = :repoId")
     abstract fun getAll(repoId: Long): List<TagEntity>
 
-    @Query("SELECT * FROM $TAG_TABLE")
-    abstract fun getAll(): List<TagEntity>
-
     @Transaction
     open fun insertAndDeleteInTransaction(newTag: TagEntity, oldTag: TagEntity) {
         insert(newTag)

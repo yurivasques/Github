@@ -12,8 +12,6 @@ interface TagRepository {
 
     fun getCacheListTag(repoId: Long): Single<List<Tag>>
 
-    fun getAllCacheListTag(): Single<List<Tag>>
-
     fun saveListTag(tagList: List<Tag>): Completable
 
     fun saveTag(tag: Tag): Completable

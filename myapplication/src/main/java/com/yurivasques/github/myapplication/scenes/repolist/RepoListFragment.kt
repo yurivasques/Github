@@ -19,7 +19,6 @@ import com.yurivasques.github.myapplication.scenes.base.view.ABaseDataFragment
 import com.yurivasques.github.myapplication.scenes.base.view.ContentState
 import com.yurivasques.github.myapplication.scenes.base.view.LoadingState
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.subjects.PublishSubject
 import javax.inject.Inject
 
 class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoListView {
@@ -57,9 +56,9 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoLis
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view?.findViewById(R.id.recyclerView)!!
-        swipeRefreshLayout = view?.findViewById(R.id.swipeRefreshLayout)!!
-        content = view?.findViewById(R.id.repoListContent)!!
+        recyclerView = view.findViewById(R.id.recyclerView)!!
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout)!!
+        content = view.findViewById(R.id.repoListContent)!!
         initView()
     }
 
@@ -74,8 +73,8 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoLis
     }
 
     private fun initView() {
-        recyclerView?.setHasFixedSize(true)
-        recyclerView?.adapter = repoAdapter
+        recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = repoAdapter
     }
 
     //region INTENTS
@@ -96,13 +95,9 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoLis
         TimberWrapper.d { "render: $viewModel" }
 
         showLoading(viewModel.loadingState == LoadingState.LOADING)
-        if (swipeRefreshLayout != null) {
-            showRefreshingLoading(swipeRefreshLayout, false)
-        }
+        showRefreshingLoading(swipeRefreshLayout)
         showRetryLoading(viewModel.loadingState == LoadingState.RETRY)
-        if (content != null) {
-            showContent(content, viewModel.contentState == ContentState.CONTENT)
-        }
+        showContent(content, viewModel.contentState == ContentState.CONTENT)
         showError(viewModel.contentState == ContentState.ERROR)
 
         renderData(viewModel.data)
@@ -111,10 +106,9 @@ class RepoListFragment : ABaseDataFragment(R.layout.repo_list_fragment), RepoLis
     }
 
     private fun renderData(repoList: List<Repo>?) {
-        Log.d("repo:renderData", "$repoList")
         repoList?.also {
             repoAdapter.data = it.toMutableList()
-            recyclerView?.scrollToPosition(0)
+            recyclerView.scrollToPosition(0)
         }
     }
     //endregion

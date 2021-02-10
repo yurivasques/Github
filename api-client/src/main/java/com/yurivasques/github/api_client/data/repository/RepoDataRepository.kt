@@ -25,12 +25,9 @@ class RepoDataRepository (
         gitHubApi.getListRepos(userName)
             .map { repoMapper.transform(it, userName) }
 
-    @SuppressLint("LongLogTag")
     override fun getCacheListRepo(userName: String): Single<List<Repo>> =
         repoProcessor.getAll(userName)
-            .map {
-                repoMapper.transform(it)
-            }
+            .map { repoMapper.transform(it) }
 
     override fun saveListRepo(repoList: List<Repo>): Completable =
         repoList.toObservable().flatMapCompletable { saveRepo(it) }
@@ -40,9 +37,9 @@ class RepoDataRepository (
                     .defaultIfEmpty(repoMapper.transformToEntity(repo))
                     .flatMapCompletable {
                         repoProcessor.insert(
-                                repoMapper.transformToEntity(
-                                        repo.copy()
-                                )
+                            repoMapper.transformToEntity(
+                                repo.copy()
+                            )
                         )
                     }
 }

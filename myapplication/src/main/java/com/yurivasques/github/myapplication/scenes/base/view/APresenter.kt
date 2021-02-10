@@ -1,6 +1,5 @@
 package com.yurivasques.github.myapplication.scenes.base.view
 
-import android.annotation.SuppressLint
 import android.util.Log
 import androidx.annotation.VisibleForTesting
 import com.yurivasques.github.myapplication.exception.ErrorMessageFactory

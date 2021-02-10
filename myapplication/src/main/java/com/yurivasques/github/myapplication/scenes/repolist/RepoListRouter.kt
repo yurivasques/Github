@@ -9,7 +9,6 @@ class RepoListRouter
 @Inject internal constructor(private val activity: AppCompatActivity) {
 
     fun routeToTags(repoId: Long, repoName: String, repoDescription: String?, userName: String) {
-        Log.d("routeToTags", "$repoId")
         activity.startActivity(
             RepoTagListActivity.newIntent(
                 activity.applicationContext,

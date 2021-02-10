@@ -7,9 +7,7 @@ import java.util.concurrent.TimeUnit
 open class OkHttpClientFactory {
     open fun createOkHttpClient(context: Context): OkHttpClient =
         OkHttpClient.Builder()
-            .apply {
-                updateTimeout()
-            }
+            .apply { updateTimeout() }
             .build()
 
     private fun OkHttpClient.Builder.updateTimeout(read: Long = 60, write: Long = 60) {

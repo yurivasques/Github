@@ -33,5 +33,4 @@ class RepoMapper
 
     fun transformToEntity(modelCollection: Collection<Repo>): List<RepoEntity> =
         modelCollection.map { transformToEntity(it) }
-    //endregion
 }
