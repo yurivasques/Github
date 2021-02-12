@@ -5,6 +5,9 @@ import com.yurivasques.github.api_client.domain.functions.CheckPersistenceResult
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
 
+/**
+ * Base processor for data access object
+ */
 abstract class BaseProcessor<T>(private val baseDao: BaseDao<T>) {
 
     fun insert(entity: T): Completable =

@@ -1,7 +1,7 @@
 package com.yurivasques.github.myapplication.exception
 
 import android.content.Context
-import com.yurivasques.github.api_client.domain.exception.NoConnectedException
+import com.yurivasques.github.api_client.domain.exception.NoConnectionException
 import com.yurivasques.github.api_client.domain.exception.PersistenceException
 import com.yurivasques.github.myapplication.R
 import timber.log.Timber
@@ -18,7 +18,7 @@ open class ErrorMessageFactory
     open fun getError(exception: Throwable?): String =
         exception?.let {
             when (it) {
-                is NoConnectedException -> context.getString(R.string.error_no_connection)
+                is NoConnectionException -> context.getString(R.string.error_no_connection)
                 is PersistenceException -> context.getString(R.string.error_persistence)
                 else -> context.getString(R.string.error_generic)
             }.apply { Timber.e(it) }

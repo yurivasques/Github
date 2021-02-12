@@ -1,5 +1,10 @@
 package com.yurivasques.github.api_client.domain.usecases.base
 
+import org.reactivestreams.Subscriber
+
+/**
+ * Base Use Case
+ */
 abstract class UseCase<R, in P>(private val logger: Logger?) {
 
     /**
@@ -11,12 +16,6 @@ abstract class UseCase<R, in P>(private val logger: Logger?) {
      * Executes the current use case.
      */
     fun execute(param: P): R = execute(param, false)
-
-    /**
-     * To not apply transformer with [UseCaseScheduler]
-     * This method can be used just in domain module (internal).
-     */
-    internal fun executeFromAnOtherUseCase(param: P): R = execute(param, true)
 
     protected open fun execute(param: P, fromUseCase: Boolean): R {
         logger?.log { "${javaClass.simpleName} : $param" }

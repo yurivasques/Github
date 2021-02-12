@@ -4,6 +4,11 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.core.SingleSource
 
+/**
+ * When an [Single] subscribes, the condition is evaluated
+ * and the appropriate [SingleSource] is subscribed to.
+ * @param <T> the common value type of the Single
+ */
 class SingleIfThen<T>(
     private val condition: Boolean,
     private val then: SingleSource<out T>,
@@ -17,5 +22,6 @@ class SingleIfThen<T>(
             orElse.subscribe(observer)
         }
     }
+
 }
 

@@ -8,6 +8,10 @@ import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Repository processor for data access object
+ * This is the access class to RepoDao operations
+ */
 @Singleton
 class RepoProcessor
 @Inject internal constructor(private val dao: RepoDao) : BaseProcessor<RepoEntity>(dao) {

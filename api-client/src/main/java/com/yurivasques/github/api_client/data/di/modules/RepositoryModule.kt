@@ -15,6 +15,9 @@ import dagger.Provides
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
+/**
+ * Dagger module for Repository class.
+ */
 @Module
 class RepositoryModule {
 

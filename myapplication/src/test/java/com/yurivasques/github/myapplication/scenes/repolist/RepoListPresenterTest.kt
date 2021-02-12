@@ -4,7 +4,7 @@ import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.yurivasques.github.api_client.domain.exception.NoConnectedException
+import com.yurivasques.github.api_client.domain.exception.NoConnectionException
 import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.api_client.domain.usecases.GetListRepo
 import com.yurivasques.github.api_client.domain.usecases.RefreshListRepo
@@ -70,7 +70,7 @@ class RepoListPresenterTest {
 
     @Test
     fun loadDataWhenUseCaseReturnException() {
-        val noConnectedException = NoConnectedException
+        val noConnectedException = NoConnectionException
 
         whenever(getListRepo.execute(userName)).thenReturn(Single.error(noConnectedException))
         whenever(view.intentLoadData()).thenReturn(Observable.just(userName))

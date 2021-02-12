@@ -10,9 +10,17 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * RetrofitFactory to generate a Retrofit instance.
+ */
 object RetrofitFactory {
+
     private const val MAIN_URL = "https://api.github.com/"
 
+    /**
+     * Get [Retrofit] instance.
+     * @return instances of [Retrofit]
+     */
     @RequiresPermission(value = Manifest.permission.INTERNET)
     fun getRetrofit(
         context: Context,

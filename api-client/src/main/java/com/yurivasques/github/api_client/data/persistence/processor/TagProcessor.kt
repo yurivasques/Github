@@ -8,6 +8,10 @@ import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Tag processor for data access object.
+ * This is the access class to TagDAO operations
+ */
 @Singleton
 class TagProcessor
 @Inject internal constructor(private val dao: TagDao) : BaseProcessor<TagEntity>(dao) {

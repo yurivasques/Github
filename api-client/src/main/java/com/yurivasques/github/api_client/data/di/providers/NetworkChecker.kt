@@ -5,6 +5,9 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 
+/**
+ * Class that checks internet connectivity with retro compatibility
+ */
 class NetworkChecker(private val context: Context) {
 
     @Suppress("DEPRECATION")
