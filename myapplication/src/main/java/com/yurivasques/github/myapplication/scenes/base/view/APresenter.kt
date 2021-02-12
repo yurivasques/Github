@@ -22,7 +22,6 @@ abstract class APresenter<in View : LoadDataView<ViewModel>, ViewModel>(private 
     }
 
     protected fun getErrorMessage(error: Throwable): String {
-        Log.e("getErrorMessage", "Deu erro", error)
         return errorMessageFactory.getError(error)
     }
 

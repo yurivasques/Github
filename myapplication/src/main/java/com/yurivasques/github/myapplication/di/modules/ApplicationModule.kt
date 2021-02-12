@@ -3,7 +3,7 @@ package com.yurivasques.github.myapplication.di.modules
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import com.yurivasques.github.myapplication.di.PerApplication
 import dagger.Module
 import dagger.Provides

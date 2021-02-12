@@ -83,7 +83,7 @@ class TagDataRepositoryTest {
         )
         val tagList = listOf(tag)
 
-        whenever(processor.get(tag.id!!)).thenReturn(Maybe.just(tagEntity))
+        whenever(processor.get(tag.id)).thenReturn(Maybe.just(tagEntity))
         whenever(mapper.transformToEntity(tag)).thenReturn(tagEntity)
         whenever(processor.insert(tagEntity)).thenReturn(Completable.complete())
 
@@ -101,7 +101,7 @@ class TagDataRepositoryTest {
             tag.repoId
         )
 
-        whenever(processor.get(tag.id!!)).thenReturn(Maybe.just(tagEntity))
+        whenever(processor.get(tag.id)).thenReturn(Maybe.just(tagEntity))
         whenever(mapper.transformToEntity(tag)).thenReturn(tagEntity)
         whenever(processor.insert(tagEntity)).thenReturn(Completable.complete())
 
