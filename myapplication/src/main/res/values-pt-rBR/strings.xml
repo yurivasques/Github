@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GitHub Usuários</string>
+    <string name="error_ops">Ops!</string>
+    <string name="retry">Tentar novamente</string>
+    <string name="error_no_connection">Sem conexão</string>
+    <string name="error_persistence">Erro nos dados da persistência</string>
+    <string name="error_generic">Ocorreu um erro</string>
+    <string name="error_no_connection_image_description">Imagem de sem conexão</string>
+    <string name="username_text">Nome de usuário</string>
+    <string name="search_button">Buscar</string>
+</resources>
