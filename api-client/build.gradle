@@ -74,7 +74,7 @@ afterEvaluate {
 
                 groupId = 'com.yurivasques.github'
                 artifactId = 'api-client'
-                version = '1.0.1'
+                version = '1.0.2'
 
                 artifact sourceJar
 
@@ -82,7 +82,7 @@ afterEvaluate {
                     name = 'GitHub API Client'
                     groupId = 'com.github.yurivasques'
                     artifactId = 'github-library'
-                    version = '1.0.1'
+                    version = '1.0.2'
                     description = 'A framework that encapsulates some of GitHub\'s API calls.'
                     url = 'https://github.com/yurivasques/Github'
 
