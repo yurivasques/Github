@@ -21,6 +21,21 @@ It's available in
 https://search.maven.org/artifact/com.github.yurivasques/github-library/1.0.1/aar
 ```
 
+Maven
+-----
+
+Import the library with 
+
+```Gradel Groovy
+implementation 'com.github.yurivasques:github-library:1.0.2'
+```
+
+Then you can use the get and refresh use cases:
+* GetListTag
+* RefreshListTag
+* GetListRepo
+* RefreshListRepo
+
 LICENCE
 -----
 
