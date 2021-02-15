@@ -24,5 +24,7 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Run instrumented unit test
-      run: ./gradlew connectedAndroidTest
+    - name: Android Emulator Runner
+      uses: ReactiveCircus/android-emulator-runner@v2.14.3
+      with:
+        script: ./gradlew connectedAndroidTest
