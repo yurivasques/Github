@@ -2,8 +2,8 @@ package com.yurivasques.github.myapplication
 
 import android.app.Application
 import androidx.annotation.VisibleForTesting
-import com.yurivasques.github.api_client.data.di.components.DaggerDataComponent
-import com.yurivasques.github.api_client.data.di.components.DataComponent
+import com.github.yurivasques.github_library.data.di.components.DaggerDataComponent
+import com.github.yurivasques.github_library.data.di.components.DataComponent
 import com.yurivasques.github.myapplication.di.components.ApplicationComponent
 import com.yurivasques.github.myapplication.di.components.DaggerApplicationComponent
 

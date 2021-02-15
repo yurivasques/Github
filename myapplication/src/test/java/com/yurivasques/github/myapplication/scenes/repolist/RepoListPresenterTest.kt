@@ -4,10 +4,10 @@ import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.yurivasques.github.api_client.domain.exception.NoConnectionException
-import com.yurivasques.github.api_client.domain.model.Repo
-import com.yurivasques.github.api_client.domain.usecases.GetListRepo
-import com.yurivasques.github.api_client.domain.usecases.RefreshListRepo
+import com.github.yurivasques.github_library.domain.exception.NoConnectionException
+import com.github.yurivasques.github_library.domain.model.Repo
+import com.github.yurivasques.github_library.domain.usecases.GetListRepo
+import com.github.yurivasques.github_library.domain.usecases.RefreshListRepo
 import com.yurivasques.github.myapplication.exception.ErrorMessageFactoryTest
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single

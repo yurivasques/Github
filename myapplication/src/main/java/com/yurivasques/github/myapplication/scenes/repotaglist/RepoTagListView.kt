@@ -1,7 +1,7 @@
 package com.yurivasques.github.myapplication.scenes.repoTagList
 
-import com.yurivasques.github.api_client.domain.usecases.GetListTag
-import com.yurivasques.github.api_client.domain.usecases.RefreshListTag
+import com.github.yurivasques.github_library.domain.usecases.GetListTag
+import com.github.yurivasques.github_library.domain.usecases.RefreshListTag
 import com.yurivasques.github.myapplication.scenes.base.view.LoadDataView
 import io.reactivex.rxjava3.core.Observable
 

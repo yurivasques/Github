@@ -1,10 +1,10 @@
 package com.yurivasques.github.myapplication.scenes.repoList
 
-import com.yurivasques.github.api_client.data.extensions.shareReplay
-import com.yurivasques.github.api_client.data.extensions.startWithSingle
-import com.yurivasques.github.api_client.domain.functions.DelayFunction
-import com.yurivasques.github.api_client.domain.usecases.GetListRepo
-import com.yurivasques.github.api_client.domain.usecases.RefreshListRepo
+import com.github.yurivasques.github_library.data.extensions.shareReplay
+import com.github.yurivasques.github_library.data.extensions.startWithSingle
+import com.github.yurivasques.github_library.domain.functions.DelayFunction
+import com.github.yurivasques.github_library.domain.usecases.GetListRepo
+import com.github.yurivasques.github_library.domain.usecases.RefreshListRepo
 import com.yurivasques.github.myapplication.exception.ErrorMessageFactory
 import com.yurivasques.github.myapplication.scenes.base.view.APresenter
 import io.reactivex.rxjava3.core.Observable

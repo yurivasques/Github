@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.yurivasques.github.api_client.domain.model.Repo
+import com.github.yurivasques.github_library.domain.model.Repo
 import com.yurivasques.github.myapplication.R
 import io.reactivex.rxjava3.subjects.PublishSubject
 

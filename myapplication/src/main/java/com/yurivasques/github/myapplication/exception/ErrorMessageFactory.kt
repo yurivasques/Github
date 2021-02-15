@@ -1,8 +1,8 @@
 package com.yurivasques.github.myapplication.exception
 
 import android.content.Context
-import com.yurivasques.github.api_client.domain.exception.NoConnectionException
-import com.yurivasques.github.api_client.domain.exception.PersistenceException
+import com.github.yurivasques.github_library.domain.exception.NoConnectionException
+import com.github.yurivasques.github_library.domain.exception.PersistenceException
 import com.yurivasques.github.myapplication.R
 import timber.log.Timber
 import javax.inject.Inject

@@ -1,7 +1,7 @@
 package com.yurivasques.github.myapplication.exception
 
 import android.content.Context
-import com.yurivasques.github.api_client.domain.exception.NoConnectionException
+import com.github.yurivasques.github_library.domain.exception.NoConnectionException
 
 class ErrorMessageFactoryTest(context: Context) : ErrorMessageFactory(context) {
 
