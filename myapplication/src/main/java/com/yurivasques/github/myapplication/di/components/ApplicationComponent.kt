@@ -1,7 +1,7 @@
 package com.yurivasques.github.myapplication.di.components
 
 import android.app.Application
-import com.github.yurivasques.github_library.data.di.components.DataComponent
+import com.yurivasques.github.api_client.data.di.components.DataComponent
 import com.yurivasques.github.myapplication.di.PerApplication
 import com.yurivasques.github.myapplication.di.modules.ApplicationModule
 import com.yurivasques.github.myapplication.di.modules.UseCaseModule

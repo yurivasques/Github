@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.jakewharton.rxbinding4.swiperefreshlayout.refreshes
 import com.jakewharton.rxbinding4.view.clicks
-import com.github.yurivasques.github_library.data.helper.TimberWrapper
-import com.github.yurivasques.github_library.domain.model.Repo
+import com.yurivasques.github.api_client.data.helper.TimberWrapper
+import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.myapplication.R
 import com.yurivasques.github.myapplication.di.PerActivity
 import com.yurivasques.github.myapplication.extensions.build

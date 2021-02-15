@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.github.yurivasques.github_library.domain.model.Tag
+import com.yurivasques.github.api_client.domain.model.Tag
 import com.yurivasques.github.myapplication.R
 
 class RepoTagsAdapter : RecyclerView.Adapter<RepoTagsAdapter.ViewHolder>() {

@@ -1,8 +1,8 @@
 package com.yurivasques.github.myapplication.di.modules
 
-import com.github.yurivasques.github_library.data.helper.TimberWrapper
-import com.github.yurivasques.github_library.domain.usecases.base.Logger
-import com.github.yurivasques.github_library.domain.usecases.base.UseCaseScheduler
+import com.yurivasques.github.api_client.data.helper.TimberWrapper
+import com.yurivasques.github.api_client.domain.usecases.base.Logger
+import com.yurivasques.github.api_client.domain.usecases.base.UseCaseScheduler
 import com.yurivasques.github.myapplication.di.PerApplication
 import dagger.Module
 import dagger.Provides

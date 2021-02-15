@@ -1,6 +1,6 @@
 package com.yurivasques.github.myapplication.scenes.repoList
 
-import com.github.yurivasques.github_library.domain.model.Repo
+import com.yurivasques.github.api_client.domain.model.Repo
 import com.yurivasques.github.myapplication.scenes.base.view.ContentState
 import com.yurivasques.github.myapplication.scenes.base.view.LoadingState
 
